@@ -5,11 +5,14 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 
+#add lazada.html (parsed it)
+with open("Lazada.html", "r") as file:
+    soup = BeautifulSoup(file, "html.parser")
 
 #Find interesting items in the shop and list the products
 products = []
 
-#add lazada.html (parsed it)
+
 #extracting product link
 #listing the product name, price, and reviews
 #convert the list to dataframe
