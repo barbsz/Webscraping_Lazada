@@ -14,11 +14,13 @@ products = []
 
 list all the divs of product
 for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "product-item"}):
+     product_name_link = div.find("a") 
+     product_name = safe_extract(div, "a", "href") if product_name_link else ""
 
 
-#extracting product link
-if product_name_link:
-        product_name = product_name_link.get('href').split("?")[0] if product_name_link.has_attr('href') else ""
+     #extracting product link
+     if product_name_link:
+             product_name = product_name_link.get('href').split("?")[0] if product_name_link.has_attr('href') else ""
 
 
 #listing the product name, price, and reviews
