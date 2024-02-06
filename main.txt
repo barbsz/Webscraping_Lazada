@@ -1,0 +1,15 @@
+with python,
+read file Lazada.html and parse it with beautifulsoup
+
+find all 
+div class="Bm3ON" data-qa-locator="product-item" data-tracking="product-card" data-sku-simple="2894375047_PH-14064874821" data-item-id="2894375047" data-listno="0" data-utlogmap="
+for all the divs
+
+try find span with class=a age="0" href="//www.lazada.com.ph/products/watsons-love-my-little-ones-baby-diaper-dry-pants-extra-large-40s-i2894375047.html?spm=a2o4l.searchlist.list.2.5698caa2VVPRxW" and store it to Product_Name
+except Product_Name= ""
+try find span with class=div class="aBrP0"  and store it to Product_Price
+except Product_Price= ""
+try find span with class=div class="mdmmT _32vUv"><i class=" and store it to Product_Reviews
+except Product_Reviews= ""
+
+open an excel file Product_Name, Product_Price, and Product_Reviews
