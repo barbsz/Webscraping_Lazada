@@ -1,8 +1,15 @@
 #psuedocode 
+
+
 #Import the libraries
+from bs4 import BeautifulSoup
+import pandas as pd
+
+
 #Find interesting items in the shop and list the products
 #add lazada.html (parsed it)
 #extracting product link
 #listing the product name, price, and reviews
 #convert the list to dataframe
 #save the datas in excel
+
