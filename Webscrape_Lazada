@@ -32,5 +32,7 @@ for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "produ
     })
 
 #convert the list to dataframe
+df = pd.DataFrame(products)
+
 #save the datas in excel
 
