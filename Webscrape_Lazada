@@ -16,6 +16,7 @@ list all the divs of product
 for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "product-item"}):
      product_name_link = div.find("a") 
      product_name = safe_extract(div, "a", "href") if product_name_link else ""
+     product_price = safe_extract(div, "div.aBrP0")
 
 
      #extracting product link
