@@ -14,6 +14,9 @@ products = []
 
 
 #extracting product link
+if product_name_link:
+        product_name = product_name_link.get('href').split("?")[0] if product_name_link.has_attr('href') else ""
+
 
 #listing the product name, price, and reviews
    products.append({
