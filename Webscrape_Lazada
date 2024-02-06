@@ -5,6 +5,12 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 
+#Function that help with scraping 
+def safe_extract(container, selector, attribute=None):
+    target = container.select_one(selector)
+    if attribute:
+        return target[attribute] if target and attribute in target.attrs else ""
+
 #add lazada.html (parsed it)
 with open("Lazada.html", "r") as file:
     soup = BeautifulSoup(file, "html.parser")
