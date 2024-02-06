@@ -14,7 +14,13 @@ products = []
 
 
 #extracting product link
+
 #listing the product name, price, and reviews
+   products.append({
+        "Product_Name": product_name,
+        
+    })
+
 #convert the list to dataframe
 #save the datas in excel
 
