@@ -12,6 +12,9 @@ with open("Lazada.html", "r") as file:
 #Find interesting items in the shop and list the products
 products = []
 
+list all the divs of product
+for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "product-item"}):
+
 
 #extracting product link
 if product_name_link:
