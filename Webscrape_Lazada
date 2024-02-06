@@ -18,7 +18,8 @@ products = []
 #listing the product name, price, and reviews
    products.append({
         "Product_Name": product_name,
-        "Product_Price": product_price,
+        "Product_Price": product_price, 
+        "Product_Reviews": product_reviews    
     })
 
 #convert the list to dataframe
