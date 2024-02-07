@@ -41,4 +41,5 @@ for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "produ
 df = pd.DataFrame(products)
 
 #save the datas in excel
+df.to_excel("Lazada_Products.xlsx", index=False)
 
