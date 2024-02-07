@@ -12,7 +12,7 @@ def safe_extract(container, selector, attribute=None):
         return target[attribute] if target and attribute in target.attrs else ""
 
 #add lazada.html (parsed it)
-with open("Lazada.html", "r") as file:
+with open("Lazada.html", "r", encoding="utf-8") as file:
     soup = BeautifulSoup(file, "html.parser")
 
 #Find interesting items in the shop and list the products
