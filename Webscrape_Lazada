@@ -1,6 +1,5 @@
 #psuedocode 
 
-
 #Import the libraries
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -10,31 +9,32 @@ def safe_extract(container, selector, attribute=None):
     target = container.select_one(selector)
     if attribute:
         return target[attribute] if target and attribute in target.attrs else ""
+    return target.get_text(strip=True) if target else ""
 
 #add lazada.html (parsed it)
 with open("Lazada.html", "r", encoding="utf-8") as file:
     soup = BeautifulSoup(file, "html.parser")
 
-#Find interesting items in the shop and list the products
+
+# Find interesting items in the shop and list the products
 products = []
 
-list all the divs of product
+# list all the divs of product
 for div in soup.find_all("div", class_="Bm3ON", attrs={"data-qa-locator": "product-item"}):
-     product_name_link = div.find("a") 
-     product_name = safe_extract(div, "a", "href") if product_name_link else ""
-     product_price = safe_extract(div, "div.aBrP0")
-     product_reviews = safe_extract(div, "div.mdmmT._32vUv")
+    product_name_link = div.find("a") 
+    product_name = safe_extract(div, "a", "href") if product_name_link else ""
+    product_price = safe_extract(div, "div.aBrP0")
+    product_reviews = safe_extract(div, "div.mdmmT._32vUv")
 
-     #extracting product link
-     if product_name_link:
-             product_name = product_name_link.get('href').split("?")[0] if product_name_link.has_attr('href') else ""
+    #extracting product link
+    if product_name_link:
+        product_name = product_name_link.get('href').split("?")[0] if product_name_link.has_attr('href') else ""
 
-
-#listing the product name, price, and reviews
-   products.append({
+    #listing the product name, price, and reviews
+    products.append({
         "Product_Name": product_name,
-        "Product_Price": product_price, 
-        "Product_Reviews": product_reviews    
+        "Product_Price": product_price,
+        "Product_Reviews": product_reviews
     })
 
 #convert the list to dataframe
@@ -42,4 +42,5 @@ df = pd.DataFrame(products)
 
 #save the datas in excel
 df.to_excel("Lazada_Products.xlsx", index=False)
+
 
